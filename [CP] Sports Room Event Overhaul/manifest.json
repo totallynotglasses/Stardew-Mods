@@ -1,0 +1,29 @@
+{
+   "Name": "Sports Room Event Overhaul",
+   "Author": "Galgana",
+   "Version": "1.0.0",
+   "Description": "A rewrite of Alex's 14 Heart Event for double the gridball broadcasting trouble: befriend Shane and Alex to unlock the sports room in the saloon.",
+   "UniqueID": "Galgana.GridballDreamTeam",
+   "UpdateKeys": [ "Nexus:14225" ],
+   "ContentPackFor": {
+      "UniqueID": "Pathoschild.ContentPatcher"
+   },
+   "Dependencies": [
+	{
+	"UniqueID": "Amaranthacyan.PlatonicPartnersandFriendships",
+	"IsRequired": false
+	},
+	{
+	"UniqueID": "tenthousandcats.ImmersiveCShane",
+	"IsRequired": false
+	},
+	{
+	"UniqueID": "iss.immersivespouses",
+	"IsRequired": false
+	},
+	{
+	"UniqueID": "dunsparce.TunnellingAhead",
+	"IsRequired": false
+	},
+   ]
+}

@@ -1,0 +1,76 @@
+{
+  "Changes": [
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/George",
+	"Entries": {
+		"Sun": "GOTO Sun_normal",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Kent",
+	"Entries": {
+		"Sun": "GOTO Sun_normal",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Gus",
+	"Entries": {
+		"Sun": "GOTO spring",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Alex",
+	"Entries": {
+		"Sun": "GOTO Sun_normal",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Shane",
+	"Entries": {
+		"Sun": "GOTO Sun_normal",
+		"marriage_Sun": "GOTO NO_SCHEDULE",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Alex",
+	"When": {"HasMod |contains=dunsparce.TunnellingAhead, iss.immersivespouses": false},
+	"Entries": {
+		"marriage_Sun": "GOTO NO_SCHEDULE",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Alex",
+	"When": {"HasMod |contains=iss.immersivespouses": true},
+	"Entries": {
+		"marriage_Sun": "GOTO marriage_SunNoSaloon",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Shane",
+	"When": {"HasMod |contains=iss.immersivespouses": true},
+	"Entries": {
+		"marriage_Sun": "GOTO marriage_Sun_NoS",
+		}
+	},
+	{
+	"Action": "EditData",
+	"Target": "Characters/schedules/Alex",
+	"When": {
+		"HasMod |contains=dunsparce.TunnellingAhead": true,
+		"Season |contains=spring": false,
+		"HasSeenEvent": "1199224",
+		},
+	"Entries": {
+		"marriage_Sun": "620 BusStop 8 25 1 \"Strings\\schedules\\Alex:marriage_Sun.000\"/2000 BusStop 8 25 1 \"Strings\\schedules\\Alex:marriage_Sun.001\"",
+		}
+	},
+  ]
+}

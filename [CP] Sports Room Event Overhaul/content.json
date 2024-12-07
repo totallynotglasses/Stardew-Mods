@@ -1,0 +1,108 @@
+{
+  "Format": "1.19.0",
+  
+  "ConfigSchema": {
+	"enableOverwriteAlex14H": {
+		"AllowValues": "true, false",
+		"Default": "true",
+		},
+	"requireHeartEvent": {
+		"AllowValues": "8, 10",
+		"Default": "8",
+		},
+	"chanceDelivery": {
+		"AllowValues": "0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1",
+		"Default": "0.1",
+		},
+  },
+  
+  "DynamicTokens": [
+	{
+	"Name": "friendPoints",
+	"Value": "f Alex 2000/f Shane 2000/",
+	"When": {"requireHeartEvent": "8"}
+	},
+	{
+	"Name": "ALSHPrePart1",
+	"Value": "e 288847 3900074",
+	"When": {"requireHeartEvent": "8"}
+	},
+	{
+	"Name": "friendPoints",
+	"Value": "f Alex 2500/f Shane 2500/",
+	"When": {"requireHeartEvent": "10"}
+	},
+	{
+	"Name": "ALSHPrePart1",
+	"Value": "e 911526 9581348",
+	"When": {"requireHeartEvent": "10"}
+	},
+	{
+	"Name": "ALSHPrePart1",
+	"Value": "e 911526 59443111",
+	"When": {
+		"requireHeartEvent": "10",
+		"HasMod |contains=tenthousandcats.ImmersiveCShane": true
+		}
+	},
+	{
+	"Name": "ALSHPrePart4",
+	"Value": "e 3917590",
+	},
+	{
+	"Name": "checkMiser1",
+	"Value": "speak Alex \"Hey, @! You made it!$h\"/faceDirection Alex 1/speak Alex \"So... what do you think?\"/pause 500/emote farmer 8",
+	},
+	{
+	"Name": "checkMiser1",
+	"Value": "textAboveHead Alex \"Oh, it's you.\"/pause 900/speak Alex \"Funny you should happen to show up on game day...$9\"/faceDirection Alex 1/pause 500/emote farmer 40",
+	"When": {"HasFlag": "nomoneymiser"},
+	},
+	{
+	"Name": "checkMiser2",
+	"Value": "Thanks to you and this podunk town,",
+	},
+	{
+	"Name": "checkMiser2",
+	"Value": "You might be a tightwad, but I really do owe it to you...$s#$b#It's 'cause of you and this podunk town that",
+	"When": {"HasFlag": "nomoneymiser"},
+	},
+
+  ],
+  "Changes": [
+	{
+	"LogName": "AlexShaneSportsRoom14Heart Revisions",
+	"Action": "Include",
+	"FromFile": "assets/events_overwrite.json",
+	"When": {"enableOverwriteAlex14H": "true"},
+	},
+	{
+	"LogName": "AlexShaneSportsRoom14Heart Part 4 Letter",
+	"Action": "EditData",
+	"Target": "Data/mail",
+	"Entries": {
+		"alshloan": "Thanks again for lending us the 5 grand.^ You're always welcome to join us on game day.^^  -Shane ^^      & ALEX %item money 5000 5001 %%",
+		}
+	},
+	{
+	"LogName": "AlexShaneSportsRoom14Heart Part 4 (Loan Payday Mail)",
+	"Action": "EditData",
+	"Target": "Data/Events/Farm",
+	"When": {"HasSeenEvent| contains=giveAlexMoney": true},
+	"Entries": {
+		"3917591/{{ALSHPrePart4}}/l nomoneymiser/r {{chanceDelivery}}/x alshloan": "null",
+		}
+	},
+//gridball off-season
+	{
+	"LogName": "Sports Room Off-Season Schedules",
+	"Action": "Include",
+	"FromFile": "assets/gridballoff.json",
+	"When": {
+		"HasFlag": "saloonSportsRoom",
+		"DayOfWeek": "Sunday",
+		"Season": "spring, summer"
+		}
+	},
+  ]
+}
